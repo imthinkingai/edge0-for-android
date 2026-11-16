@@ -1,0 +1,200 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Edge0 Chat</title><style>:root{color-scheme:light dark;--bg:#fff;--fg:#171717;--muted:#767676;--soft:#f4f4f4;--line:#e8e8e8;--sheet:#fff;--hover:#ececec;--inverse:#fff;--danger:#bc3535}
+@media(prefers-color-scheme:dark){:root{--bg:#212121;--fg:#ececec;--muted:#a1a1a1;--soft:#303030;--line:#3b3b3b;--sheet:#292929;--hover:#3a3a3a;--inverse:#171717;--danger:#ff9292}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{height:100%;margin:0}body{font:15px/1.6 -apple-system,BlinkMacSystemFont,Roboto,'Noto Sans',system-ui,sans-serif;background:var(--bg);color:var(--fg);overflow:hidden}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit;border:0;background:transparent}button:disabled{opacity:.35;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #888;outline-offset:2px}button:active{opacity:.65}svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}#shell{height:100%;height:100dvh;display:flex;flex-direction:column}.topbar{height:64px;flex-shrink:0;display:flex;align-items:center;gap:12px;padding:8px 14px}.icon-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:50%}.title{flex:1;font-size:18px;font-weight:650;letter-spacing:-.4px}.title small{font-size:11px;display:block;color:var(--muted);font-weight:400;letter-spacing:0;line-height:1.2}.main{flex:1;min-height:0;display:flex;flex-direction:column}.messages{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:20px 20px 12px;scroll-behavior:auto}.message-inner{max-width:760px;margin:0 auto}.msg{margin:0 0 30px;min-width:0}.msg.user{display:flex;flex-direction:column;align-items:flex-end;margin-left:12%}.bubble{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;user-select:text}.user .bubble{background:var(--soft);border-radius:24px;padding:12px 18px;max-width:100%}.assistant .bubble{padding:0 2px}.actions{display:flex;align-items:center;gap:4px;margin-top:9px;color:var(--muted)}.actions button{font-size:12px;min-height:36px;padding:4px 8px;border-radius:9px}.actions svg{height:17px;width:17px;margin-right:4px}.thinking-block{border-left:2px solid var(--line);color:var(--muted);padding:0 12px;margin:0 0 14px;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}.thinking-block summary{cursor:pointer;white-space:normal}.cursor{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--fg);margin-left:4px;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.3}}.empty{height:100%;min-height:240px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding-bottom:36px}.empty .mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid var(--line);border-radius:16px;margin-bottom:14px}.empty h1{font-size:26px;letter-spacing:-1px;margin:0 0 6px;font-weight:600}.empty p{font-size:13px;color:var(--muted);margin:0}.composer{padding:6px 14px max(10px,env(safe-area-inset-bottom));width:100%;max-width:800px;margin:0 auto}.input-card{background:var(--soft);border-radius:27px;padding:12px 15px 10px;border:1px solid var(--line)}textarea,input,select{color:var(--fg);background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:16px}#input{display:block;border:0;background:transparent;width:100%;resize:none;min-height:32px;max-height:180px;line-height:1.6;padding:1px 3px;outline:0}.row{display:flex;align-items:center;gap:10px;margin-top:8px}.pill{border:1px solid var(--line);border-radius:20px;padding:4px 11px;font-size:12px}.send-btn{border-radius:22px;background:var(--fg);color:var(--inverse);padding:10px 18px;font-size:14px;font-weight:600;min-height:44px}.send-btn.sec{background:var(--soft);color:var(--fg);border:1px solid var(--line)}#sendBtn{margin-left:auto;width:36px;height:36px;min-height:36px;padding:0;display:grid;place-items:center;border-radius:50%}.hint{color:var(--muted);font-size:12px;overflow-wrap:anywhere}#statusHint{text-align:center;font-size:11px;min-height:21px;padding-top:5px}.sidebar{position:fixed;inset:0 auto 0 0;width:min(310px,85vw);background:var(--bg);z-index:70;transform:translateX(-100%);transition:transform .2s;display:flex;flex-direction:column;padding:12px}.sidebar.open{transform:translateX(0)}.sidebar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;font-size:19px;font-weight:650;padding-left:10px}.new-chat-btn{background:var(--soft);border-radius:14px;padding:12px;text-align:left;font-weight:550;margin-bottom:20px}.chat-list{flex:1;overflow:auto}.chat-item{display:flex;border-radius:12px;margin:3px 0}.chat-item.active{background:var(--soft)}.chat-item .select-chat{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;min-width:0;padding:12px}.chat-item .del{width:38px;color:var(--muted)}.settings{border-top:1px solid var(--line);padding:18px 10px;text-align:left}.mask{display:none;position:fixed;inset:0;background:#0006;z-index:65}.mask.open{display:block}.panel{display:none;position:fixed;inset:auto 0 0;max-height:90%;max-height:90dvh;background:var(--sheet);z-index:80;border-radius:24px 24px 0 0;padding:20px;overflow-y:auto;padding-bottom:max(24px,env(safe-area-inset-bottom))}.panel.open{display:block}.panel h2{font-size:20px;margin:0}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panel label{display:block;color:var(--muted);font-size:12px;margin:12px 0 5px}.panel input,.panel textarea{width:100%}.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel p{font-size:13px;color:var(--muted)}.editor{display:none;position:fixed;inset:0;background:var(--bg);z-index:90;flex-direction:column;height:100%;height:100dvh}.editor.open{display:flex}.editor-head{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:10px 14px;flex-shrink:0}.editor-head h2{font-size:17px;flex:1;margin:0}.editor-body{padding:16px;overflow:auto;flex:1;min-height:0}.editor textarea{width:100%;min-height:220px;resize:vertical;line-height:1.7;white-space:pre-wrap;overflow:auto}.editor .editor-footer{padding:12px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.context-card{margin-bottom:20px}.context-card label{display:block;margin-bottom:8px;font-size:12px;color:var(--muted)}#toast{position:fixed;bottom:125px;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--inverse);border-radius:20px;padding:8px 16px;z-index:120;font-size:13px;display:none;max-width:90%;width:max-content}pre{white-space:pre-wrap;overflow-wrap:anywhere}#undoBtn{font-size:12px;color:var(--muted)}@media(min-width:800px){.messages{padding:32px}.panel{left:50%;transform:translateX(-50%);max-width:640px;width:100%}.editor{left:50%;transform:translateX(-50%);max-width:800px;border-inline:1px solid var(--line)}}
+</style></head><body>
+<div id="shell"><header class="topbar"><button class="icon-btn" aria-label="打开会话列表" onclick="toggleSidebar()" data-icon="menu"></button><div class="title">Edge0 <small>35B · 本地模型</small></div><button class="icon-btn" aria-label="新对话" onclick="newChat()" data-icon="new"></button></header>
+<main class="main"><div class="messages" id="messages" aria-label="聊天记录"></div><div class="composer"><div class="input-card"><textarea id="input" rows="1" placeholder="发送消息" aria-label="消息输入框"></textarea><div class="row"><button class="icon-btn" aria-label="模型设置" onclick="openSettings()" data-icon="settings"></button><button class="pill" onclick="openContext()">编辑上下文</button><button id="undoBtn" hidden onclick="undoEdit()">撤销修改</button><button class="send-btn" id="sendBtn" onclick="doSend()" aria-label="发送消息"></button></div></div><div class="hint" id="statusHint" role="status"></div></div></main></div>
+<div class="mask" id="sidebarMask" onclick="closeSidebar()"></div><aside class="sidebar" id="sidebar"><div class="sidebar-head">Edge0 Chat<button class="icon-btn" aria-label="关闭列表" onclick="closeSidebar()" data-icon="close"></button></div><button class="new-chat-btn" onclick="newChat()">＋ 新对话</button><div class="chat-list" id="chatList"></div><button class="settings" onclick="openSettings()">模型设置</button></aside>
+<div id="settingsMask" class="mask" onclick="closeSettings()"></div><section id="settingsPanel" class="panel" role="dialog" aria-label="模型设置">
+  <div class="panel-head"><h2>模型设置 · 10.1</h2><button class="icon-btn" onclick="closeSettings()" aria-label="关闭设置" data-icon="close"></button></div>
+  <div id="engineState" role="status" style="padding:12px;background:var(--soft);border-radius:12px">正在查询引擎状态…</div><p id="engineError" style="color:var(--danger);white-space:pre-wrap;overflow-wrap:anywhere"></p>
+<button class="pill" onclick="showStartupLog()">查看 / 复制启动日志</button><button class="pill" onclick="cancelStartup()">停止加载</button>
+<label>模型目录</label>
+  <input type="text" id="sModelDir">
+  <label>系统提示词</label>
+  <textarea id="sSystem" rows="3"></textarea>
+  <div class="row2">
+    <div><label>Temperature</label><input type="text" id="sTemp" value="0.7"></div>
+    <div><label>Top-P</label><input type="text" id="sTopP" value="0.8"></div>
+    <div><label>Top-K</label><input type="text" id="sTopK" value="20"></div>
+    <div><label>线程数</label><input type="text" id="sThreads" value="4"></div>
+    <div><label>Max Tokens</label><input type="text" id="sMaxTokens" value="256"></div>
+    <div><label>上下文容量（tokens，0 = 模型默认）</label><input type="text" id="sContext" value="0"></div>
+  </div>
+  <div style="margin-top:14px">
+    <button class="send-btn" onclick="applySettings()">应用并重建引擎</button>
+  </div>
+  <div style="margin-top:10px">
+    <button class="send-btn sec" style="background:var(--soft);color:var(--fg)" onclick="runDiagnose()">诊断模型路径</button>
+  </div>
+  <div style="margin-top:10px">
+    <button class="send-btn" id="importBtn" style="background:var(--soft);color:var(--fg)" onclick="doImport()">导入模型到 App 私有目录</button>
+    <button class="send-btn stop" id="cancelImportBtn" style="display:none" onclick="cancelImport()">取消复制</button>
+  </div>
+  <div style="margin-top:8px">
+    <button class="send-btn sec" style="background:var(--soft);color:var(--danger);font-size:13px" onclick="deletePrivateModel()">删除私有目录模型副本</button>
+  </div>
+  <div class="hint" style="margin-top:6px" id="importHint">引擎读不到共享存储的模型时，可把模型复制进 App 私有目录（约 21GB，占额外空间）。复制由你手动触发。</div>
+  <pre id="diagOut" style="margin-top:10px;font-size:11px;color:#9a9fb0;white-space:pre-wrap;background:var(--soft);padding:8px;border-radius:6px;display:none"></pre>
+</section>
+<section class="editor" id="editor" role="dialog" aria-label="消息编辑器"><header class="editor-head"><button class="icon-btn" onclick="closeEditor()" aria-label="取消编辑" data-icon="close"></button><h2 id="editorTitle">编辑消息</h2><button class="send-btn" id="editorSave" onclick="saveEditor()">保存</button></header><div class="editor-body" id="editorBody"></div><footer class="editor-footer" id="editorNote"></footer></section><div id="toast" role="status"></div><script>'use strict';
+var chats=[],currentId=null,ready=false,engineStarting=false,generating=false,streamTarget=null,lastError='',timerId=null,timerStart=0,editorMode=null,editorIndex=-1,composing=false;
+var icons={menu:'<path d="M4 7h16M4 12h11M4 17h16"/>',new:'<path d="M13 5H5v14h14v-8M13 11l7-7M16 4h4v4"/>',send:'<path d="M12 19V5m-6 6 6-6 6 6"/>',stop:'<rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" stroke="none"/>',edit:'<path d="m4 16 11-11 4 4L8 20H4v-4ZM13 7l4 4"/>',regen:'<path d="M20 10a8 8 0 1 0-2 8M20 4v6h-6"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',context:'<path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/>',settings:'<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--bg)"/><circle cx="15" cy="17" r="3" fill="var(--bg)"/>'};
+function icon(name){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+icons[name]+'</svg>';}
+function $(id){return document.getElementById(id);}function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function toast(s){$('toast').textContent=s;$('toast').style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(function(){$('toast').style.display='none';},3000);}
+function currentChat(){return chats.find(function(c){return c.id===currentId;});}
+function saveChats(){try{localStorage.setItem('edge0_chats',JSON.stringify(chats));localStorage.setItem('edge0_current',String(currentId));return true;}catch(e){toast('存储空间不足，当前修改尚未保存');return false;}}
+function loadChats(){try{var saved=JSON.parse(localStorage.getItem('edge0_chats')||'[]');if(Array.isArray(saved))chats=saved;currentId=Number(localStorage.getItem('edge0_current'));}catch(e){toast('聊天记录读取失败');}if(!chats.length)newChat();if(!currentChat())currentId=chats[0].id;loadDraft();renderAll();}
+function locked(){if(generating){toast('请先停止当前回复');return true;}return false;}
+function rememberDraft(){var c=currentChat();if(c){c.draft=$('input').value;saveChats();}}
+function loadDraft(){$('input').value=(currentChat()||{}).draft||'';autoGrow();}
+function newChat(){if(locked())return;rememberDraft();var c={id:Date.now(),title:'新对话',messages:[],draft:''};while(chats.some(function(x){return x.id===c.id;}))c.id++;chats.unshift(c);currentId=c.id;loadDraft();renderAll();saveChats();closeSidebar();}
+function selectChat(id){if(locked())return;rememberDraft();currentId=id;loadDraft();renderAll();saveChats();closeSidebar();}
+function delChat(id){if(locked())return;if(!confirm('删除这段对话？'))return;chats=chats.filter(function(c){return c.id!==id;});if(currentId===id)currentId=chats.length?chats[0].id:null;if(!chats.length)newChat();loadDraft();renderAll();saveChats();}
+function renderChatList(){$('chatList').innerHTML=chats.map(function(c){return '<div class="chat-item'+(c.id===currentId?' active':'')+'"><button class="select-chat" onclick="selectChat('+c.id+')">'+esc(c.title)+'</button><button class="del" aria-label="删除对话" onclick="delChat('+c.id+')">×</button></div>';}).join('');}
+function renderMessages(){var c=currentChat(),box=$('messages');var near=box.scrollHeight-box.scrollTop-box.clientHeight<100,old=box.scrollTop;
+if(!c||!c.messages.length){box.innerHTML='<div class="empty"><div class="mark">'+icon('new')+'</div><h1>有什么可以帮你？</h1><p>Edge0 · 35B · 本机对话</p></div>';return;}
+box.innerHTML='<div class="message-inner">'+c.messages.map(function(m,i){var active=generating&&m===streamTarget;return '<article class="msg '+m.role+'">'+(m.thinking?'<details class="thinking-block"'+(active?' open':'')+'><summary>思考过程</summary>'+esc(m.thinking)+'</details>':'')+'<div class="bubble">'+esc(m.text)+(active?'<span class="cursor"></span>':'')+'</div><div class="actions">'+(!generating?'<button onclick="openMessageEditor('+i+')">'+icon('edit')+'编辑</button>'+(m.role==='assistant'?'<button onclick="regenerate('+i+')">'+icon('regen')+'重新生成</button>':''):'')+'</div></article>';}).join('')+'</div>';
+if(near)scrollBottom();else box.scrollTop=old;}
+function scheduleStreamRender(){
+ if(!firstOutputAt)firstOutputAt=Date.now();
+ if(streamFrame)return;
+ streamFrame=requestAnimationFrame(function(){
+  streamFrame=0;
+  if(!generating||!streamTarget)return;
+  var box=$('messages'), follow=box.scrollHeight-box.scrollTop-box.clientHeight<100;
+  var article=box.querySelector('.msg.assistant:last-child');
+  if(!article){renderMessages();return;}
+  var bubble=article.querySelector('.bubble');
+  var content=bubble.firstChild;
+  if(!content||content.nodeType!==3){content=document.createTextNode('');bubble.insertBefore(content,bubble.firstChild);}
+  content.data=streamTarget.text;
+  if(streamTarget.thinking){
+   var details=article.querySelector('details');
+   if(!details){details=document.createElement('details');details.className='thinking-block';var summary=document.createElement('summary');summary.textContent='思考过程';details.append(summary,document.createTextNode(''));article.insertBefore(details,bubble);}
+   if(details.open)details.lastChild.data=streamTarget.thinking;
+   if(!details.ontoggle)details.ontoggle=function(){if(streamTarget&&details.open)details.lastChild.data=streamTarget.thinking;};
+  }
+  if(follow)scrollBottom();
+ });
+}
+function renderAll(){renderMessages();renderChatList();$('undoBtn').hidden=!(currentChat()||{}).backup;}
+function scrollBottom(){$('messages').scrollTop=$('messages').scrollHeight;}
+function autoGrow(){var t=$('input');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,180)+'px';}
+function setStatus(s){$('statusHint').textContent=s;}
+function setSendBtn(stop){$('sendBtn').innerHTML=icon(stop?'stop':'send');$('sendBtn').setAttribute('aria-label',stop?'停止生成':'发送消息');$('sendBtn').onclick=stop?doStop:doSend;}
+function startTimer(){stopTimer();timerStart=Date.now();timerId=setInterval(function(){setStatus(firstOutputAt?'首段 '+((firstOutputAt-timerStart)/1000).toFixed(1)+' 秒 · 正在生成 '+Math.floor((Date.now()-firstOutputAt)/1000)+' 秒':'等待首段输出 · '+Math.floor((Date.now()-timerStart)/1000)+' 秒');},1000);}
+function stopTimer(){if(timerId)clearInterval(timerId);timerId=null;}
+function canGenerate(){if(generating)return false;if(!ready){toast(engineStarting?'模型仍在加载，请稍候':'引擎未就绪，请打开模型设置');return false;}return true;}
+var firstOutputAt=0, lastTiming='', streamFrame=0;
+function generate(){firstOutputAt=0;lastTiming='';lastError='';var c=currentChat();var payload=c.messages.filter(function(m){return m.role==='user'||m.role==='assistant';}).map(function(m){return {role:m.role,content:m.text};});
+streamTarget={role:'assistant',text:'',thinking:''};c.messages.push(streamTarget);generating=true;setSendBtn(true);startTimer();setStatus('正在准备回复…');saveChats();renderAll();scrollBottom();try{window.edge0.send(JSON.stringify(payload));}catch(e){window.__edge0.onError(String(e));}}
+function doSend(){if(composing||!canGenerate())return;var text=$('input').value;if(!text.trim())return;var c=currentChat();c.messages.push({role:'user',text:text});if(c.messages.length===1)c.title=text.trim().slice(0,24);c.draft='';$('input').value='';autoGrow();generate();}
+function doStop(){generating=false;streamTarget=null;stopTimer();ready=false;engineStarting=true;setSendBtn(false);saveChats();renderMessages();setStatus('已停止，正在重新加载引擎…');window.edge0.stop();}
+function backup(){var c=currentChat();c.backup=JSON.parse(JSON.stringify(c.messages));}
+function undoEdit(){if(locked())return;var c=currentChat();if(!c.backup)return;var previous=c.messages;c.messages=c.backup;c.backup=previous;saveChats();renderAll();toast('已恢复上一个版本');}
+function regenerate(index){if(!canGenerate())return;var c=currentChat();var user=index-1;while(user>=0&&c.messages[user].role!=='user')user--;if(user<0){toast('没有可重新生成的提问');return;}if(index<c.messages.length-1&&!confirm('重新生成这里的回复，并移除后续消息？可通过“撤销修改”恢复。'))return;backup();c.messages=c.messages.slice(0,user+1);generate();}
+function openMessageEditor(index){if(locked())return;editorMode='message';editorIndex=index;$('editorTitle').textContent=currentChat().messages[index].role==='user'?'修改提问':'编辑回复';$('editorSave').textContent='保存';$('editorBody').innerHTML='<textarea id="editText" aria-label="完整消息内容" spellcheck="false"></textarea>';$('editText').value=currentChat().messages[index].text;$('editorNote').textContent='完整保留换行和文字。保存后可重新生成回复。';$('editor').classList.add('open');$('editText').focus();}
+function openContext(){if(locked())return;editorMode='context';$('editorTitle').textContent='编辑上下文';$('editorSave').textContent='保存';$('editorBody').innerHTML='';var c=currentChat();if(!c.messages.length){toast('发送消息后即可编辑上下文');return;}c.messages.forEach(function(m,i){var card=document.createElement('div');card.className='context-card';var label=document.createElement('label');label.textContent=(i+1)+' · '+(m.role==='user'?'你':'Edge0');var t=document.createElement('textarea');t.value=m.text;t.dataset.index=i;t.setAttribute('aria-label',label.textContent);card.appendChild(label);card.appendChild(t);$('editorBody').appendChild(card);});$('editorNote').textContent='逐条编辑完整记录；下一次发送或重新生成时生效。模型的上下文容量仍受设置限制。';$('editor').classList.add('open');}
+function closeEditor(){if(editorMode){var changed=editorMode==='message'?$('editText').value!==currentChat().messages[editorIndex].text:Array.from($('editorBody').querySelectorAll('textarea')).some(function(t){return t.value!==currentChat().messages[Number(t.dataset.index)].text;});if(changed&&!confirm('放弃尚未保存的修改？'))return;}$('editor').classList.remove('open');editorMode=null;}
+function saveEditor(){if(composing)return;var c=currentChat();if(editorMode==='message'){var value=$('editText').value;if(!value.trim()){toast('消息不能为空');return;}if(value!==c.messages[editorIndex].text){if(c.messages[editorIndex].role==='user'&&editorIndex<c.messages.length-1&&!confirm('保存新提问将移除其后的回复。可通过“撤销修改”恢复。'))return;backup();c.messages[editorIndex].text=value;if(c.messages[editorIndex].role==='user')c.messages=c.messages.slice(0,editorIndex+1);else delete c.messages[editorIndex].thinking;}}else{var fields=Array.from($('editorBody').querySelectorAll('textarea'));if(fields.some(function(t){return !t.value.trim();})){toast('消息不能为空');return;}backup();fields.forEach(function(t){var m=c.messages[Number(t.dataset.index)];if(m.text!==t.value)delete m.thinking;m.text=t.value;});}
+if(!saveChats())return;editorMode=null;$('editor').classList.remove('open');renderAll();var last=c.messages[c.messages.length-1];if(last&&last.role==='user'&&ready){if(confirm('已保存。现在生成回复？'))generate();}else toast('已保存完整内容');}
+window.__edge0={onAnswerStart:function(){},onAnswerChunk:function(t){if(!generating||!streamTarget)return;streamTarget.text+=t;scheduleStreamRender();},onAnswerEnd:function(){if(!generating)return;generating=false;streamTarget=null;stopTimer();setSendBtn(false);saveChats();renderAll();lastTiming=firstOutputAt?'首段 '+((firstOutputAt-timerStart)/1000).toFixed(1)+' 秒 · 总耗时 '+((Date.now()-timerStart)/1000).toFixed(1)+' 秒':'';setStatus(lastTiming);},onThinkingStart:function(){},onThinkingChunk:function(t){if(generating&&streamTarget){streamTarget.thinking+=t;scheduleStreamRender();}},onThinkingEnd:function(){},onError:function(m){lastError=m;generating=false;streamTarget=null;stopTimer();setSendBtn(false);saveChats();renderAll();setStatus(m);$('engineError').textContent=m;$('diagOut').textContent=m;$('diagOut').style.display='block';},onState:function(s){if(s==='READY'){ready=true;engineStarting=false;setStatus(lastError||'');}else if(s==='LOADING'){ready=false;engineStarting=true;setStatus('模型加载中…');}else if(s==='IDLE'){ready=false;engineStarting=false;if(generating){generating=false;streamTarget=null;stopTimer();setSendBtn(false);saveChats();renderAll();}setStatus(lastError||'引擎未就绪 · 打开设置查看启动日志');}else if(s==='GENERATING'){ready=false;}}};
+function toggleSidebar(){$('sidebar').classList.toggle('open');$('sidebarMask').classList.toggle('open');}function closeSidebar(){$('sidebar').classList.remove('open');$('sidebarMask').classList.remove('open');}
+function openSettings(){if(locked())return;pollEngine();closeSidebar();$('settingsMask').classList.add('open');$('settingsPanel').classList.add('open');}function closeSettings(){$('settingsMask').classList.remove('open');$('settingsPanel').classList.remove('open');}
+function applySettings(){if(locked())return;var args={modelDir:$('sModelDir').value.trim(),system:$('sSystem').value,temperature:Number($('sTemp').value),topP:Number($('sTopP').value),topK:Number($('sTopK').value),threads:Number($('sThreads').value),maxTokens:Number($('sMaxTokens').value),context:Number($('sContext').value)};
+if(!args.modelDir||!Number.isFinite(args.temperature)||args.temperature<0||!Number.isFinite(args.topP)||args.topP<=0||args.topP>1||!Number.isInteger(args.topK)||args.topK<0||!Number.isInteger(args.threads)||args.threads<1||!Number.isInteger(args.maxTokens)||args.maxTokens<1||!Number.isInteger(args.context)||args.context<0){toast('请检查路径及参数：Top-P 为 0～1，线程和输出长度为正整数');return;}
+try{localStorage.setItem('edge0_settings',JSON.stringify(args));}catch(e){toast('模型设置未能保存');}lastError='';ready=false;engineStarting=true;setStatus('模型加载中…');$('engineError').textContent='';$('engineState').textContent='正在启动…';try{if(!window.edge0.start(JSON.stringify(args))){engineStarting=false;lastError='启动请求失败，请查看启动日志';setStatus(lastError);$('engineError').textContent=lastError;openSettings();}}catch(e){window.__edge0.onError(String(e));}pollEngine();}
+var inputEl=$('input');inputEl.addEventListener('input',function(){autoGrow();rememberDraft();});document.addEventListener('compositionstart',function(){composing=true;});document.addEventListener('compositionend',function(){composing=false;});inputEl.addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)&&!e.isComposing&&!composing&&e.keyCode!==229){e.preventDefault();doSend();}});
+window.addEventListener('load',function(){document.querySelectorAll('[data-icon]').forEach(function(el){el.innerHTML=icon(el.dataset.icon);});setSendBtn(false);loadChats();var saved;try{saved=JSON.parse(localStorage.getItem('edge0_settings')||'null');}catch(e){}var map={modelDir:'sModelDir',system:'sSystem',temperature:'sTemp',topP:'sTopP',topK:'sTopK',threads:'sThreads',maxTokens:'sMaxTokens',context:'sContext'};if(saved)Object.keys(map).forEach(function(k){if(saved[k]!==undefined)$(map[k]).value=saved[k];});if(window.edge0){if(!$('sModelDir').value)$('sModelDir').value=window.edge0.defaultModelDir();if(window.edge0.privateModelDirIfReady){var path=window.edge0.privateModelDirIfReady();if(path&&(!saved||!saved.modelDir||saved.modelDir.indexOf('/sdcard/')===0||saved.modelDir.indexOf('/storage/emulated/')===0))$('sModelDir').value=path;}if(window.edge0.engineReady())applySettings();else setStatus('引擎文件缺失');}else setStatus('界面预览 · 未连接本机引擎');});
+
+// ---- 模型导入（复制到 App 私有目录，绕过子进程的存储限制）----
+var importing = false;
+var autoImportStarted = false;
+function doImport(){
+  if (importing) return;
+  var src = document.getElementById('sModelDir').value.trim() || window.edge0.defaultModelDir();
+  var need = 21;
+  var msg = '将把模型从：\n' + src + '\n\n复制到 App 私有目录，额外占用约 ' + need + ' GB 空间。\n\n'
+          + '· 复制期间请保持 App 在前台\n'
+          + '· 可随时取消\n'
+          + '· 复制完成后自动切换并重建引擎\n\n确定开始复制吗？';
+  if (!window.confirm(msg)) return;
+  importing = true;
+  var btn = document.getElementById('importBtn');
+  var hint = document.getElementById('importHint');
+  btn.disabled = true;
+  btn.textContent = '导入中…';
+  document.getElementById('cancelImportBtn').style.display = 'inline-block';
+  hint.textContent = '正在复制…';
+  window.edge0.importModel(src);
+}
+function cancelImport(){
+  if (!importing) return;
+  window.edge0.cancelImport();
+  document.getElementById('importHint').textContent = '正在取消…';
+}
+window.__edge0ImportDone = function(res){
+  importing = false;
+  var btn = document.getElementById('importBtn');
+  var hint = document.getElementById('importHint');
+  btn.disabled = false;
+  btn.textContent = '导入模型到 App 私有目录';
+  var cb = document.getElementById('cancelImportBtn');
+  if (cb) cb.style.display = 'none';
+  if (res && res.length > 0) {
+    hint.textContent = '✓ 导入完成，正在用私有目录重建引擎…';
+    document.getElementById('sModelDir').value = res;
+    applySettings();
+  } else {
+    hint.textContent = '已取消或失败（已复制的部分会保留，下次可继续续传）。';
+  }
+};
+function deletePrivateModel(){
+  if (!window.confirm('删除 App 私有目录里的模型副本？\n（删除后需要重新复制才能使用）')) return;
+  try {
+    var ok = window.edge0.deletePrivateModel();
+    document.getElementById('importHint').textContent = ok ? '✓ 私有副本已删除' : '✗ 删除失败';
+  } catch(e) {
+    document.getElementById('importHint').textContent = '✗ 删除失败: ' + e;
+  }
+}
+window.__edge0ImportProgress = function(name, pct, mb){
+  var hint = document.getElementById('importHint');
+  if (!hint) return;
+  if (mb) hint.textContent = '正在复制 ' + name + ' … ' + pct + '% (' + mb + ')';
+  else hint.textContent = '正在复制 ' + name + ' … ';
+};
+
+function runDiagnose(){
+  var el = document.getElementById('diagOut');
+  el.style.display = 'block';
+  try {
+    el.textContent = window.edge0.diagnose()+'\n\n'+runtimeReport();
+  } catch(e) {
+    el.textContent = '诊断失败: ' + e;
+  }
+}
+
+var latestRuntime=null;
+function runtimeReport(){var r=latestRuntime;if(!r)return '尚无运行状态；请点击应用并重建引擎。';return 'Edge0 Chat 10.1\n状态：'+r.state+'\n已用时间：'+r.seconds+' 秒\n模型：'+r.modelDir+'\n引擎：'+r.executable+'\n连接：'+r.probe+'\n错误：'+(r.error||'无')+'\n启动参数：'+r.command+'\n\n引擎日志：\n'+(r.logs||'尚无输出');}
+function pollEngine(){
+ if(!window.edge0||!window.edge0.runtimeStatus)return;
+ try{var r=JSON.parse(window.edge0.runtimeStatus());if(!r.state)return;latestRuntime=r;
+ ready=r.state==='READY';engineStarting=r.state==='LOADING';
+ var names={IDLE:'已停止 / 未启动',LOADING:'正在加载模型',READY:'引擎已就绪',GENERATING:'正在生成'};
+ $('engineState').textContent=(names[r.state]||r.state)+(r.threads?' · '+r.threads+' 线程':'')+(engineStarting?' · '+r.seconds+' 秒':'');
+ if(r.error){lastError=r.error;$('engineError').textContent=r.error;}
+ else if(ready){lastError='';$('engineError').textContent='';}
+ if(!generating)setStatus(r.error||(engineStarting?'模型加载中 · '+r.seconds+' 秒':(ready?(lastTiming||'引擎已就绪'):'引擎未启动 · 打开设置查看启动日志')));
+ if($('startupLog'))$('startupLog').value=runtimeReport();
+ }catch(e){$('engineError').textContent='读取引擎状态失败：'+String(e);}
+}
+function showStartupLog(){pollEngine();editorMode='diagnostics';$('editorTitle').textContent='启动日志';$('editorSave').textContent='关闭';$('editorBody').innerHTML='<textarea id="startupLog" aria-label="完整启动日志" readonly style="min-height:65vh"></textarea>';$('startupLog').value=runtimeReport();$('editorNote').textContent='长按日志可全选、复制；将完整错误发给我即可进一步定位。';$('editor').classList.add('open');}
+function cancelStartup(){if(generating){doStop();return;}if(window.edge0&&window.edge0.cancelStartup)window.edge0.cancelStartup();ready=false;engineStarting=false;pollEngine();}
+var saveEditorOriginal=saveEditor;saveEditor=function(){if(editorMode==='diagnostics'){editorMode=null;$('editor').classList.remove('open');return;}saveEditorOriginal();};
+var closeEditorOriginal=closeEditor;closeEditor=function(){if(editorMode==='diagnostics'){editorMode=null;$('editor').classList.remove('open');return;}closeEditorOriginal();};
+setInterval(pollEngine,1000);
+
+</script></body></html>
