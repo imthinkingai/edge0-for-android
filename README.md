@@ -3,14 +3,14 @@
 一个用于在 Android 手机本地运行 Edge0 35B 的社区聊天客户端。这个版本从 Edge0 35B 的基础上整理，使用本地推理服务，不需要网络和付费。模型权重已公开（可自行下载转换）。
 通过MoE混合专家模式，35B参数的语言模型激活仅3B即可在一般手机上适用。
 
-1.0 test ver
+1.0 测试版
 
 建议配置
 Android OS 14+
-12GB+内存 128G+储存
+12GB+内存 128G+存储
 1~4线程----线程过多可能导致模型回复速度过慢。
 ## 功能
-通过内置网页来进行本地推理。建议使用示例APP。
+通过内置网页进行本地推理。建议使用示例APP。
 - 支持多行输入、编辑历史消息、重新生成回复和修改上下文。
 - 支持流式输出、浅色和深色界面，以及本地对话管理。
 - 可调整 CPU 线程和输出长度，查看首段等待时间、总耗时和启动日志。
@@ -19,9 +19,10 @@ Android OS 14+
 
 本工程目标为 Android 14 及以上、ARM64。发布 APK 时请注明实际测试的设备和版本。安装后，在模型设置里选择兼容的 Edge0 35B 资产目录。需要时可导入到应用私有目录，导入会另外占用一份模型所需的空间。模型准备见[上游中文说明](https://github.com/Edge0-AI/Edge0/blob/main/README_zh.md)及[推理引擎文档](https://github.com/Edge0-AI/Edge0/tree/main/edge0-infer)。
 
-GGUF android可直接使用的35b量化模型已提供在首页。
+[Edge0-35B-A3B-preview](https://huggingface.co/Edge0/Edge0-35B-A3B-preview)（35B MoE，最终 约 21GB GGUF）
 
-线程数按设备和负载实测。可从 2 线程开始，用相同的代码输入和输出上限比较首段等待与总耗时。
+从 Hugging Face 下载并转换为 GGUF（约 21GB），放到手机 `/sdcard/Download/edge0-assets-35b/`。<br/>转换方法参考 [edge0-infer 文档](https://github.com/Edge0-AI/Edge0/blob/main/edge0-infer/docs/getting-started.md)。
+线程数按设备和负载实测。可从 2 线程开始，用相同的代码输入和输出上限比较首段等待与总耗时。（推荐四线程）
 
 ## 源码结构
 
