@@ -48,6 +48,4 @@ python3 scripts/build.py --apktool /path/to/apktool.jar \
 
 ## 来源与授权
 
-[Edge0 上游仓库](https://github.com/Edge0-AI/Edge0)标注 Apache-2.0，并单独列出[模型许可证](https://github.com/Edge0-AI/Edge0/tree/main/licenses/edge0-model)。这些条款不能直接推定适用于用于重建的 9.0 APK 的全部内容。公开上传前，请确认该 APK 的 Android 外壳及资源有再分发授权，确认随 APK 附带的引擎版本与出处，并按适用条款附上许可证和声明。若外壳来源无法确认，请改用上游已明确授权的 Android 工程移植界面与引擎桥。
-
-本整理包未包含原 APK、引擎二进制、模型权重或签名私钥。当前为发布草案。
+[Edge0 上游仓库](https://github.com/Edge0-AI/Edge0)标注 Apache-2.0，并单独列出[模型许可证](https://github.com/Edge0-AI/Edge0/tree/main/licenses/edge0-model)。这些条款不能直接推定适用于用于重建的APK的全部内容。公开上传前，请确认该 APK 的 Android 外壳及资源有再分发授权，确认随 APK 附带的引擎版本与出处，并按适用条款附上许可证和声明。若外壳来源无法确认，请改用上游已明确授权的 Android 工程移植界面与引擎桥。
