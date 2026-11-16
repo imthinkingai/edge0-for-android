@@ -1,0 +1,7 @@
+*.apk
+*.so
+*.jks
+*.keystore
+*.p12
+apktool-project/build/
+apktool-project/dist/
